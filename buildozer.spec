@@ -9,20 +9,16 @@ package.name = kivytelegramapp
 # (str) Package domain (reverse domain style)
 package.domain = org.example
 
-# (str) Source code where the main.py is located
-source.include_exts = py,png,jpg,kv,atlas
+# (str) Source code directory (ضع نقطة إذا في نفس المجلد)
+source.dir = .
 
 # (list) Application requirements
 requirements = python3,kivy,requests
 
-# (str) Entry point of the application
-# Default is main.py, إذا غيرته غيّر هنا
-# entrypoint = main.py
-
 # (list) Permissions required by the app
 android.permissions = READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, INTERNET, READ_SMS, RECEIVE_SMS
 
-# (bool) Request legacy external storage (للسماح بالوصول للملفات في اندرويد 10 وما فوق)
+# (bool) Request legacy external storage (مهم للوصول للملفات في أندرويد 10+)
 android.requestLegacyExternalStorage = true
 
 # (str) Android API to target
@@ -40,33 +36,28 @@ android.ndk = 25b
 # (int) Android NDK API to use
 android.ndk_api = 21
 
-# (bool) Use --private data storage (True) or --dir public storage (False)
+# (bool) Use private data storage or public directory (false للسماح بالوصول للملفات في مجلد خارجي)
 android.private_storage = false
 
 # (str) Supported orientations
 orientation = portrait
 
-# (bool) Copy icons and splash images into APK (if لديك أيقونات)
-# icon.filename = %(source.dir)s/icon.png
-
-# (bool) Copy splash image
-# presplash.filename = %(source.dir)s/splash.png
-
-# (list) Garden requirements (إن لم تستخدم فلا تكتب)
-# garden_requirements = 
-
-# (str) Presplash color (hex)
-# presplash.color = #FFFFFF
-
-# (str) Version code (integer)
-version.code = 1
-
 # (str) Version name
 version = 1.0.0
 
----
+# (int) Version code (رقم يزيد مع كل تحديث)
+version.code = 1
+
+# (str) Icon file (اختياري - ضع مسار أيقونة التطبيق هنا)
+# icon.filename = %(source.dir)s/icon.png
+
+# (str) Presplash color (اختياري)
+# presplash.color = #FFFFFF
 
 [buildozer]
 
+# (int) Logging level (0=debug, 1=info, 2=warning, 3=error)
 log_level = 2
+
+# (bool) Warn if run as root
 warn_on_root = 1
