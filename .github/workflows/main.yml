@@ -24,7 +24,7 @@ jobs:
           sudo apt install -y python3-pip python3-setuptools git build-essential \
             libssl-dev libffi-dev python3-dev libsqlite3-dev openjdk-11-jdk
           pip install --upgrade pip
-          pip install buildozer
+          pip install cython buildozer
 
       - name: Build APK
         run: buildozer -v android debug
