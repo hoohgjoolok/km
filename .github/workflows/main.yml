@@ -22,12 +22,15 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y python3-pip python3-setuptools git build-essential \
-            libssl-dev libffi-dev python3-dev libsqlite3-dev openjdk-11-jdk
+            libssl-dev libffi-dev python3-dev libsqlite3-dev openjdk-11-jdk unzip
           pip install --upgrade pip
           pip install cython buildozer
 
-      - name: Build APK
-        run: buildozer -v android debug
+      - name: Build APK (first try to accept licenses)
+        run: |
+          # Accept all Android SDK licenses
+          yes | $HOME/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager --licenses || true
+          buildozer -v android debug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
